@@ -19,6 +19,8 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "https://out-ere.vercel.app",
+        "https://www.out-ere.co.uk",
+        "https://out-ere.co.uk",
     ],
     allow_credentials=True,
     allow_methods=["GET"],
