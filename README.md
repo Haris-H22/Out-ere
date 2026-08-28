@@ -1,75 +1,114 @@
-# React + TypeScript + Vite
+# Out-ere
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Out-ere is a student activities and events discovery and booking platform designed to help university students discover activities happening across universities and cities in the UK.
 
-Currently, two official plugins are available:
+The platform brings student activities into one place, allowing students to discover events, view activity details, save activities, make bookings and receive personalised recommendations.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Out-ere also provides a dedicated organiser experience for organisations, societies and event organisers to manage activities associated with their organisation.
 
-## React Compiler
+> **Status:** MVP / Currently in development
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+University students often have to search across university websites, students' union platforms, society pages and social media to find activities and events.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Out-ere aims to simplify this experience by providing a centralised platform for discovering student activities.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Students can browse activities, explore events from different universities and cities, save activities they are interested in, make bookings and receive personalised recommendations based on their interests and behaviour.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Organisers have a separate organiser experience where they can manage activities associated with their organisation.
 
-```
+---
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## Key Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Student Features
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Student account registration
+- Secure authentication
+- Student login and logout
+- Activity discovery
+- Activity search
+- Activity filtering
+- Activity categories
+- University-based activity discovery
+- Activity detail pages
+- Event dates and times
+- Event locations
+- Event pricing
+- Event capacity information
+- Save activities
+- Remove saved activities
+- Book activities
+- View confirmed bookings
+- User profile
+- University preferences
+- Interest preferences
+- Personalised activity recommendations
+- Responsive design
+- Mobile navigation
 
-```
+---
+
+### Organiser Features
+
+Out-ere provides a separate organiser experience for organisations that manage their own events.
+
+Organisers can:
+
+- Access an organiser-only dashboard
+- View activities belonging to their organisation
+- Manage organiser activities
+- View activity information
+- Access organiser-specific navigation
+- Maintain a separate organiser experience from student accounts
+
+Organisers do not have access to student-only functionality such as saved activities and bookings.
+
+---
+
+## Personalised Recommendations
+
+Out-ere includes a separate Python-based recommendation service designed to provide personalised activity recommendations.
+
+The recommendation system can use information including:
+
+- Previous activity interactions
+- Activity categories
+- User interests
+- University preferences
+- Activity popularity
+- Upcoming activities
+- Confirmed bookings
+
+The recommendation engine ranks available activities and returns personalised recommendations.
+
+Recommendations can also include an explanation describing why an activity was recommended.
+
+### Recommendation Flow
+
+```text
+User Activity
+      |
+      +----------------------+
+      |                      |
+      v                      v
+Interactions          User Preferences
+      |                      |
+      +----------+-----------+
+                 |
+                 v
+        Recommendation Engine
+                 |
+        +--------+--------+
+        |        |        |
+        v        v        v
+     Interests Popularity University
+                 |
+                 v
+          Ranked Activities
+                 |
+                 v
+       Personalised Results

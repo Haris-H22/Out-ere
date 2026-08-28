@@ -83,7 +83,7 @@ const Home = () => {
             }
 
             const response = await fetch(
-                `http://127.0.0.1:8000/recommendations/${user.id}`,
+                `${import.meta.env.VITE_RECOMMENDATION_API_URL}/recommendations/${user.id}`,
             )
 
             if (!response.ok) {
